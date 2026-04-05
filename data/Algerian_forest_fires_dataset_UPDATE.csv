@@ -1,4 +1,4 @@
-day,month,year,Temperature, RH, Ws,Rain ,FFMC,DMC,DC,ISI,BUI,FWI,Classes  
+ day,month,year,Temperature, RH, Ws,Rain ,FFMC,DMC,DC,ISI,BUI,FWI,Classes  
 01,06,2012,29,57,18,0,65.7,3.4,7.6,1.3,3.4,0.5,not fire   
 02,06,2012,29,61,13,1.3,64.4,4.1,7.6,1,3.9,0.4,not fire   
 03,06,2012,26,82,22,13.1,47.1,2.5,7.1,0.3,2.7,0.1,not fire   
