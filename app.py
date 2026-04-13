@@ -47,5 +47,16 @@ else:
 if st.button("Predict",type='primary'):
     input_data=np.array([[TEMPERATURE,RH,WS,RAIN,FFMC,DMC,ISI,CLASSES,REGION]])
     scaled=scaler.transform(input_data)
-    result=model.predict(scaled)
-    st.success(result[0])
+    result=model.predict(scaled)[0]
+
+    st.divider()
+    st.markdown("## 🔥 Prediction Result")
+
+    if result < 5:
+        st.success(f"FWI: {result:.2f} → Low Risk ✅")
+    elif result < 10:
+        st.info(f"FWI: {result:.2f} → Moderate Risk ⚠️")
+    elif result < 20:
+        st.warning(f"FWI: {result:.2f} → High Risk 🔥")
+    else:
+        st.error(f"FWI: {result:.2f} → Extreme Risk 🚨")
