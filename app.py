@@ -28,9 +28,20 @@ with columns1:
 with columns2:
     DMC=st.number_input("DMC",max_value=65,min_value=0,value=14)
     ISI=st.number_input("ISI",value=4,min_value=0,max_value=19)
-    CLASSES=st.selectbox("Select an Option",options=[0,1])
-    REGION=st.selectbox("Select an option",options=[0,1])
+    CLASSES = st.selectbox("Fire Status", options=["Not Fire", "Fire"])
+    REGION = st.selectbox("Region", options=["Sidi Region", "Bejaia Region"])
     
+
+if CLASSES == "Not Fire":
+    CLASSES = 0
+else:
+    CLASSES = 1
+
+
+if REGION == "Sidi Region":
+    REGION = 0
+else:
+    REGION = 1
 
 
 if st.button("Predict",type='primary'):
