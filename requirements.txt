@@ -4,4 +4,5 @@ matplotlib
 seaborn
 scikit-learn
 joblib
+pickle
 streamlit
