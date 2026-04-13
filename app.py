@@ -1,18 +1,18 @@
 import streamlit as st
 import numpy as np
 import pandas as pd
-from sklearn.preprocessing import StandardScaler
 import joblib
 import warnings
 
 
 warnings.filterwarnings('ignore')
 
-scaler=StandardScaler()
+with open('models/scaler.pkl','rb') as s:
+    scaler=joblib.load(s)
 
 
-with open('models/best_linear_regression_model.pkl','rb')as f:
-    model=joblib.load(f)
+with open('models/best_linear_regression_model.pkl','rb')as m:
+    model=joblib.load(m) 
 
 st.set_page_config(page_title="Algerian Forest Fire Prediction",page_icon="🔥")
 st.title("🔥Algerian Forest Fire Prediction")
@@ -32,12 +32,9 @@ with columns2:
     REGION=st.selectbox("Select an option",options=[0,1])
     
 
-input_data=np.array([[TEMPERATURE,RH,WS,RAIN,FFMC,DMC,ISI,CLASSES,REGION]])
-scaled=scaler.transform(input_data)
-result=model.predict(scaled)
-
-
-st.write(scaled)
 
 if st.button("Predict",type='primary'):
+    input_data=np.array([[TEMPERATURE,RH,WS,RAIN,FFMC,DMC,ISI,CLASSES,REGION]])
+    scaled=scaler.transform(input_data)
+    result=model.predict(scaled)
     st.success(result[0])
