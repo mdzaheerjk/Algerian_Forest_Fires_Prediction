@@ -3,6 +3,10 @@ import numpy as np
 import pandas as pd
 from sklearn.preprocessing import StandardScaler
 import joblib
+import warnings
+
+
+warnings.filterwarnings('ignore')
 
 scaler=StandardScaler()
 
